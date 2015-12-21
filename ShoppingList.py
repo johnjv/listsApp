@@ -84,6 +84,6 @@ class ShoppingList(List):
                 firstLine = False
             ##now print out list
             print("{}           {}").format(self.primaryList[index[0]][0], self.primaryList[index[0]][1])##11 spaces
-        print("")
+        print(" ")
 
 
