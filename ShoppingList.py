@@ -2,12 +2,11 @@ from list import List
 
 class ShoppingList(List):
 
-    def addItem(self, quantity, item):
-        newListItem = [quantity,item]
+    def addItem(self, quantity, item): ##I dont like how this handes duplicate entries. Should prompt for # to add/replace immediately
+        newListItem = [quantity,item]  ## after duplicate thing is added
         matchingIndex = None
         isSame = False
         for index in enumerate(self.primaryList):
-            print(self.primaryList[index[0]])
             if  item in self.primaryList[index[0]]:
                 isSame = True
                 matchingIndex = index[0]
@@ -17,7 +16,6 @@ class ShoppingList(List):
                 print("\n")
                 ##check if valid input,
                 while True:
-                    print("you made it")
                     if userInput == "ADD":
                         self.primaryList[index[0]][0] += quantity
                         print("Adding {} to {} for a new total of {}").format(quantity, self.primaryList[index[0]][1],self.primaryList[index[0]][0])
@@ -56,10 +54,10 @@ class ShoppingList(List):
                 newItem = raw_input("What would you like to add to your list?\n")
                 newQuantity = int(raw_input("How many?\n"))
                 self.addItem(newQuantity,newItem)
-            elif actionSelection == "REMOVE":
-                return 0
-                #needs to confirm that item is in list - for loop
-                #call remove item method
+            elif actionSelection == "REMOVE": #need to verify that seleciton is in list, valid input, etc
+                removeSelection = raw_input("What would you like to remove?")
+                self.removeItem(removeSelection)
+
             elif actionSelection == "VIEW":
                 self.printList()
             elif actionSelection == "QUIT":

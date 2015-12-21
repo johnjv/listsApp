@@ -3,13 +3,16 @@ class List:
     isActive = True
 
     def removeItem(self, item):
+
         print(self.printList())
         for element in enumerate(self.primaryList):
             successful = True
-            "this whole while loop is a dirty way of fixing the for loop issues of skipping elements b/c I deleted an index"
+            #"this whole while loop is a dirty way of fixing the for loop issues of skipping elements b/c I deleted an index"
             while successful:
+                print(self.primaryList[element[0]][1])
                 print(element)
-                if item == self.primaryList[element[0]][0]:
+                if item.upper() == self.primaryList[element[0]][1].upper():
+                    print(self.primaryList[element[0]])
                     del self.primaryList[element[0]]
                 else:
                     successful = False
